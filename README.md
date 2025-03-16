@@ -18,13 +18,21 @@ timer configurations, and overflow management.
 
 ## Future Improvements
 
-  - Higher Precision: The system can be adapted for higher-speed measurements by increasing timer resolution or using more advanced techniques like the RMT peripheral.
+  - Higher Precision: The system can be adapted for higher-speed measurements by increasing timer resolution or using more advanced techniques like      the RMT peripheral.
   - Add a schematic for the sensor circuit.
 
 ## Conclusion
 
-This implementation provides a robust solution for measuring the time difference between two GPIO pulses on the ESP32. It leverages the hardware timers for high precision,
-handles overflow gracefully, and uses interrupts for real-time processing. This solution can be expanded further depending on the specific requirements of your project.
+This implementation provides a robust solution for measuring the time difference between two GPIO pulses on the ESP32. It leverages the hardware timers for high precision, handles overflow gracefully, and uses interrupts for real-time processing. This solution can be expanded further depending on the specific requirements of your project.
 
 ## Model files
 Model files for 3D printing are available here: https://makerworld.com/en/models/1217145-speed-sensor-tube#profileId-1233233
+
+## Example Measurements
+The relative error shows room for improvement. Unfortunately lacking a RS flip flop to make a rising and a falling edge out of the two
+rising edges. Once I have this done I will use RMT to count the distance of those two edges which can be done with 12.5 ns resolution
+on hardware level. The precision should be sufficient after this change.
+ - Time = 45332 µs, Speed = 0.662 m/s (2.38 km/h)
+ - Time = 46816 µs, Speed = 0.641 m/s (2.31 km/h)
+ - Time = 42106 µs, Speed = 0.712 m/s (2.56 km/h)
+ - Time = 43452 µs, Speed = 0.690 m/s (2.49 km/h)
