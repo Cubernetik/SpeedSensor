@@ -1,0 +1,77 @@
+<!DOCTYPE HTML><html>
+<head>
+	<title>RFID</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="data:,">
+	<style>
+		html {font-family: Arial; display: inline-block; text-align: center;}
+		body {
+			max-width: 600px;
+			margin:0px auto;
+			padding-bottom: 0px;
+			background-color: #393939;
+			color: #cbcbdf;
+		}
+		h1 {font-size: 1.8rem; margin:1px; padding: 0px;}
+		h2 {font-size: 1.3rem; margin:1px; padding: 0px;}
+		p {font-size:medium;}
+		div {margin: 4px; padding: 4px;}
+		.container {
+            background-color: #303030;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 8px;
+        }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>RFID Reader</h1>
+	</div>
+
+	<div class="container">
+		Chip<br>
+		<span class="status-label">UID:</span> <span id="uid">-</span>
+	</div>
+
+	<div class="container">
+		<span class="status-label">Status:</span> <span id="status">-</span>
+	</div>
+
+	<div class="container">
+		Copyright (c) 2024 by Cubernetic
+	</div>
+
+    <script>
+		// Connect to WebSocket server
+		const socket = new WebSocket('ws://' + window.location.host + '/ws');
+
+		// Handle incoming messages
+		socket.onmessage = function(event) {
+			try {
+				// Parse JSON data from the server
+				const data = JSON.parse(event.data);
+
+				// Update HTML fields with the data
+				if (data.uid !== undefined) {
+					document.getElementById('uid').textContent = data.uid;
+				}
+			} catch (error) {
+				console.error('Error reading chip info:', error);
+			}
+		};
+
+		// Handle WebSocket errors
+		socket.onerror = function(error) {
+			document.getElementById('status').textContent = "Error connecting to server.";
+		};
+
+		// Handle WebSocket connection close
+		socket.onclose = function() {
+			document.getElementById('status').textContent = "WebSocket connection closed.";
+		};
+    </script>
+</body>
+</html>
+
+
