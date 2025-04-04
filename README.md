@@ -23,8 +23,6 @@ timer configurations, and overflow management.
 
 ## Conclusion
 
-This implementation provides a robust solution for measuring the time difference between two GPIO pulses on the ESP32. It leverages the hardware timers for high precision, handles overflow gracefully, and uses interrupts for real-time processing. This solution can be expanded further depending on the specific requirements of your project.
-
 ## Model files
 Model files for 3D printing are available here: https://makerworld.com/en/models/1217145-speed-sensor-tube#profileId-1233233
 
