@@ -26,6 +26,10 @@ timer configurations, and overflow management.
 ## Model files
 Model files for 3D printing are available here: https://makerworld.com/en/models/1217145-speed-sensor-tube#profileId-1233233
 
+## Schematic
+Schematic for the IR proximity sensor board
+![IR proximity sensor board](Speed-Sensor-Schematic.png)
+
 ## Example Measurements
 The relative error shows room for improvement. Unfortunately lacking a RS flip flop to make a rising and a falling edge out of the two
 rising edges. Once I have this done I will use RMT to count the distance of those two edges which can be done with 12.5 ns resolution
