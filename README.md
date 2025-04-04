@@ -19,7 +19,6 @@ timer configurations, and overflow management.
 ## Future Improvements
 
   - Higher Precision: The system can be adapted for higher-speed measurements by increasing timer resolution or using more advanced techniques like      the RMT peripheral.
-  - Add a schematic for the sensor circuit.
 
 ## Conclusion
 
@@ -27,7 +26,7 @@ timer configurations, and overflow management.
 Model files for 3D printing are available here: https://makerworld.com/en/models/1217145-speed-sensor-tube#profileId-1233233
 
 ## Schematic
-Schematic for the IR proximity sensor board
+Schematic for the IR proximity sensor board. Schematic and board located in kicad folder.
 ![IR proximity sensor board](Speed-Sensor-Schematic.png)
 
 ## Example Measurements
